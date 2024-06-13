@@ -18,7 +18,7 @@ const Login = () => {
             <h1 className='font-bold text-xl md:text-3xl'>Welcome Back</h1>
           </div>
           
-          
+          <AuthButtons/>
 
           <div className="flex items-center w-full">
             <hr className="flex-1 border-t border-gray-600" />
