@@ -17,12 +17,39 @@ module.exports = {
       },
     },
     extend: {
+      
+      width: {
+        'custom-743': '743px',
+      },
+
+      height: {
+        'custom-976': '976px',
+      }, 
+
+      padding: {
+        '24px': '24px',
+        '64px': '64px',
+      },
+      
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(180deg, hsl(var(--gradient-primary-from)) 0%, hsl(var(--gradient-primary-to)) 100%)',
+      },
+      boxShadow: {
+        'light': '-3px 4px 0px 0px hsla(0, 0%, 100%, 1)',
+        'dark': '-3px 4px 0px 0px hsla(258, 100%, 52%, 1)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: "hsla(var(--background))",
+        'background-lighter': "hsla(var(--background-lighter))",
         foreground: "hsl(var(--foreground))",
+        blue: {
+          DEFAULT: "hsl(var(--blue))",
+          darkest: "hsl(var(--blue-darkest))",
+        },
+        "purple-light": "hsl(var(--purple-light))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -51,6 +78,9 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        customCardsLeft: "hsl(var(--custom-card-left))",
+
       },
       borderRadius: {
         lg: "var(--radius)",
