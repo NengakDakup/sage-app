@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { X } from 'lucide-react';
 
-const page = () => {
+const SignUp = () => {
   return (
     <div className="flex flex-col items-center h-full p-4 md:p-12 ">
     <div className="relative flex flex-col w-full h-min max-w-[743px] rounded-xl gap-12 py-12 px-4 md:px-16 my-auto md:gradient-border-darkest">
@@ -50,11 +50,13 @@ const page = () => {
             <div className='flex items-center gap-6'>
                 <h2>Already have an account?</h2>
 
-               
+                <Link href='/auth/login' className='inline'>
+                    <Button variant="dark">Log In</Button>
+                </Link>   
             </div>    
         </div>
       </div>
   )
 }
 
-export default page
+export default SignUp
