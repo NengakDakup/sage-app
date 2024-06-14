@@ -1,4 +1,5 @@
 'use client'
+import { DashboardHeader } from '@/components/DashboardHeader'
 import LeftSideBar from '@/components/LeftSideBar'
 import React, {useState} from 'react'
 
