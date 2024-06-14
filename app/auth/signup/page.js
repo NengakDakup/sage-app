@@ -18,6 +18,8 @@ const page = () => {
             <Image src='/images/logo.png' alt='SageAI' width={36} height={36} />
             <h1 className='font-bold text-xl md:text-3xl'>Get Started</h1>
         </div>
+
+        <AuthButtons/>
   )
 }
 
