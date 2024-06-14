@@ -111,6 +111,12 @@
       border: 2px dashed hsl(var(--blue-darkest));
       background: linear-gradient(hsl(var(--blue-darkest)), hsl(var(--blue-darkest))) padding-box, linear-gradient(hsl(var(--purple)),hsl(var(--blue))) border-box;
     }
+
+    .gradient-border {
+      box-sizing: border-box;
+      border: 1px solid transparent;
+      background: linear-gradient(hsl(var(--blue-darkest)), hsl(var(--blue-darkest))) padding-box, linear-gradient(hsl(var(--purple)),hsl(var(--blue))) border-box;
+  }
    
   }
 
