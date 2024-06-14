@@ -50,7 +50,6 @@ const Login = () => {
           </div>    
         </div>
 
-        <AddCourse/>
       </div>
   )
 }

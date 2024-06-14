@@ -103,5 +103,29 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+
+    function ({ addUtilities }) {
+      addUtilities({
+        '.border-blur-gradient': {
+          position: 'relative',
+          zIndex: '1',
+        },
+        '.border-blur-gradient::before': {
+          content: '""',
+          position: 'absolute',
+          top: '-1px',
+          right: '-1px',
+          bottom: '-1px',
+          left: '-1px',
+          zIndex: '-1',
+          background: 'linear-gradient(to bottom, #A109FF, #4912FF)', // Gradient background
+          borderRadius: 'inherit', // Ensure the border radius matches the parent
+          filter: 'blur(10px)', // Adjust blur intensity as needed
+        },
+      });
+    },
+
+  ],
 }
