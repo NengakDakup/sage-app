@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { X } from 'lucide-react';
+import AddCourse from '@/components/AddCourse'
 
 const Login = () => {
   return (
@@ -48,6 +49,8 @@ const Login = () => {
             </Link>
           </div>    
         </div>
+
+        <AddCourse/>
       </div>
   )
 }
