@@ -20,6 +20,40 @@ const page = () => {
         </div>
 
         <AuthButtons/>
+
+        <div className="flex items-center w-full">
+                <hr className="flex-1 border-t border-gray-600" />
+                <p className="mx-4 text-xs italic text-gray-600">OR</p>
+                <hr className="flex-1 border-t border-gray-600" />
+            </div>
+
+            <form>
+                <div className="flex flex-col mb-4 gap-2">
+                    <Label className="text-gray-600" htmlFor="email">Email</Label>
+                    <Input id="email" type="text" placeholder="Enter Email" />
+                </div>
+                <div className="flex flex-col mb-4 gap-2">
+                    <Label className="text-gray-600" htmlFor="username">Username</Label>
+                    <Input id="username" type="text" placeholder="Enter Username" />
+                </div>
+                <div className="flex flex-col mb-4 gap-2">
+                    <Label className="text-gray-600" htmlFor="password1">Create Password</Label>
+                    <Input id="password1" type="password" placeholder="Enter Password" />
+                </div>
+                <div className="flex flex-col mb-4 gap-2">
+                    <Label className="text-gray-600" htmlFor="password2">Confirm Password</Label>
+                    <Input id="password2" type="password" placeholder="Enter Password" />
+                </div>
+                <Button variant="light" className="w-full">Create Account</Button>
+            </form>
+
+            <div className='flex items-center gap-6'>
+                <h2>Already have an account?</h2>
+
+               
+            </div>    
+        </div>
+      </div>
   )
 }
 
