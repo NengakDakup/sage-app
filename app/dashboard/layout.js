@@ -11,6 +11,7 @@ export default function DashboardLayout ({children}) {
         <LeftSideBar toggled={toggled} setToggled={setToggled} />
       </div>
       <div className={`flex flex-col grow h-full relative ${toggled && 'w-4/5'}`}>
+        <DashboardHeader />
         <div className='flex flex-row h-full pt-24'>
           {children}
         </div>
