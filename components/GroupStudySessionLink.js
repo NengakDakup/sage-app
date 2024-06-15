@@ -31,7 +31,10 @@ const GroupStudySessionLink = () => {
                 <p className="mx-4 text-xs italic text-gray-600">OR</p>
                 <hr className="flex-1 border-t border-gray-600" />
           </div>
-        
+          <p className='font-semibold text-white'>Share to</p>
+          <div>
+
+          </div>
         </div>
       </DialogDescription>
     </DialogHeader>
