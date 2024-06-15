@@ -16,10 +16,13 @@ const AddFlashcard = () => {
   <DialogTrigger>Open</DialogTrigger>
   <DialogContent>
     <DialogHeader>
-      <DialogTitle>Are you absolutely sure?</DialogTitle>
-      <DialogDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
+      <DialogTitle>Add A Flashcard</DialogTitle>
+      <DialogDescription class>
+
+        <Input className='w-full' id="password1" type="text" placeholder="Give it a Name" />     
+        <Input className='w-full'id="password1" type="text" placeholder="Title of Document" />
+        <Button variant="light" className="w-full">Add Flashcard</Button>
+
       </DialogDescription>
     </DialogHeader>
   </DialogContent>
