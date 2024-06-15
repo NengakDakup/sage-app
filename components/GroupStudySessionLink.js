@@ -32,9 +32,12 @@ const GroupStudySessionLink = () => {
                 <p className="mx-4 text-xs italic text-gray-600">OR</p>
                 <hr className="flex-1 border-t border-gray-600" />
           </div>
-          <p className='font-semibold text-white'>Share to</p>
+            <p className='font-semibold text-white'>Share to</p>
           <div>
-
+          <Image src='/images/whatsapp.svg' alt='whatsapp' width={36} height={36} />
+          <Image src='/images/Facebook.svg' alt='facebook' width={36} height={36} />
+          <Image src='/images/Twitter.svg' alt='twitter' width={36} height={36} />
+          <Image src='/images/Gmail.svg' alt='gmail' width={36} height={36} />
           </div>
         </div>
       </DialogDescription>
