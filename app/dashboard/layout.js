@@ -19,7 +19,7 @@ export default function DashboardLayout ({children}) {
       </div>
       <div className={`flex flex-col grow h-full relative ${toggled && 'w-4/5'}`}>
         <DashboardHeader />
-        <div className='flex flex-row h-full pt-16 md:pt-24'>
+        <div className='flex flex-row h-full'>
           {children}
         </div>
       </div>
