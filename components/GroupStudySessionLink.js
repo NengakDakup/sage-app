@@ -7,18 +7,19 @@ import {
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
+  import { Label } from "@/components/ui/label"
   
 const GroupStudySessionLink = () => {
   return (
     <div>
 <Dialog>
   <DialogTrigger>Open</DialogTrigger>
-  <DialogContent>
+  <DialogContent className='gradient-border w-[562px]'> 
     <DialogHeader>
-      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogTitle className='pb-4'>Group Study Session</DialogTitle>
       <DialogDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
+      <Label className="text-gray-600 text-xs" htmlFor="text">Enjoy the bliss of company. Share with your friends and mates.</Label>
+        
       </DialogDescription>
     </DialogHeader>
   </DialogContent>
