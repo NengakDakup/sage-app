@@ -7,6 +7,7 @@ import {
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
+  import { Input } from "@/components/ui/input" 
   
 
 const AddFlashcard = () => {
@@ -17,10 +18,10 @@ const AddFlashcard = () => {
   <DialogContent>
     <DialogHeader>
       <DialogTitle>Add A Flashcard</DialogTitle>
-      <DialogDescription class>
+      <DialogDescription className='flex flex-col justify-center items-center gap-5'>
 
         <Input className='w-full' id="password1" type="text" placeholder="Give it a Name" />     
-        <Input className='w-full'id="password1" type="text" placeholder="Title of Document" />
+        <Input className='w-full'id="password1" type="text" placeholder="Note" />
         <Button variant="light" className="w-full">Add Flashcard</Button>
 
       </DialogDescription>
