@@ -19,6 +19,7 @@ const GroupStudySessionLink = () => {
     <div>
 <Dialog>
   <DialogTrigger>Open</DialogTrigger>
+  <div className='min-w-[70%] md:w-screen'></div>
   <DialogContent className='gradient-border w-[562px]'> 
     <DialogHeader>
       <DialogTitle className='pb-4'>Group Study Session</DialogTitle>
