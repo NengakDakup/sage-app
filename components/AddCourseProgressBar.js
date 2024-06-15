@@ -14,7 +14,8 @@ const AddCourseProgressBar = () => {
     <div>
     <Dialog>
   <DialogTrigger>Open</DialogTrigger>
-  <DialogContent className='gradient-border w-[392px] pl-5'>
+  <div className='min-w-[70%] md:w-screen'>
+  <DialogContent className='md:gradient-border w-[350px] h-max rounded-xl px-8 md:w-full'>
     <DialogHeader>
       <DialogDescription className=' relative'>
       <Loader className='absolute left-12 top-7'/>
@@ -29,6 +30,7 @@ const AddCourseProgressBar = () => {
       </DialogDescription>
     </DialogHeader>
   </DialogContent>
+  </div>
 </Dialog>
 
     </div>
