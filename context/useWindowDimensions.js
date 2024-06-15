@@ -1,26 +1,29 @@
 import { useState, useEffect } from 'react';
 
 const useWindowDimensions = () => {
-  const [windowDimensions, setWindowDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
-  });
+  const hasWindow = typeof window !== 'undefined';
+
+  const getWindowDimensions = () => {
+    const width = hasWindow ? window.innerWidth : null;
+    const height = hasWindow ? window.innerHeight : null;
+    return { width, height };
+  };
+
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions);
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-    };
+    if (hasWindow) {
+      const handleResize = () => {
+        setWindowDimensions(getWindowDimensions());
+      };
 
-    window.addEventListener('resize', handleResize);
+      window.addEventListener('resize', handleResize);
 
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+  }, [hasWindow]); // Dependency array includes hasWindow
 
   return windowDimensions;
 };
