@@ -10,8 +10,9 @@ import { Button } from '@/components/ui/button'
 import { GroupMember } from './GroupMember';
 export const DashboardHeader = () => {
   return (
-    <div className='flex justify-between items-center w-full bg-blue-darkest border-b border-purple-light p-6 absolute top-0 left-0 z-10'>
-            <div className='w-1/2'>
+    <div className='flex justify-end md:justify-between items-center w-full bg-blue-darkest border-b border-purple-light p-6 absolute top-0 left-0 z-10'>
+
+            <div className='w-1/2 hidden md:block'>
                 <Input id="seach" className="pl-12 rounded-full border-purple-light bg-blue-darkest" type="search" placeholder="Search conversation..." />
 
                 <div className='relative bottom-8 pl-4 flex items-center'>

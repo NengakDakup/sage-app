@@ -1,13 +1,20 @@
 'use client'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { ChevronsRight, ChevronsDown } from 'lucide-react'
 import { DashboardFlashcards } from './DashboardFlashcards'
+import useWindowDimensions from '@/context/useWindowDimensions'
 
 
 const DashboardFlascardsList = () => {
     const [toggled, setToggled] = useState(false)
+    const {width, height} = useWindowDimensions();
+
+    useEffect(() => {
+        if(width < 1200) setToggled(true)
+    }, [width])
+
   return (
-    <div className={`relative border-r border-purple-light pt-4 overflow-y-scroll ${toggled? 'w-[30px]' : 'w-[200px]'}`}>
+    <div className={`hidden md:block relative border-r border-purple-light pt-4 overflow-y-scroll ${toggled? 'w-[30px]' : 'w-[200px]'}`}>
             {toggled && 
                 <p onClick={() => setToggled(!toggled)} className='absolute top-[60px] left-[-37px] flex flex-row text-[10px] w-[100px] gap-2 cursor-pointer hover:underline rotate-90'>
                     <ChevronsDown className='w-4 h-4' /> 

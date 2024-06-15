@@ -1,14 +1,21 @@
 'use client'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { ChevronsRight, ChevronsDown, SquarePlus } from 'lucide-react'
 import { Button } from './ui/button'
 import ChatHistoryItem from './ChatHistoryItem'
+import useWindowDimensions from '@/context/useWindowDimensions'
 
 
 const DashboardChatHistory = () => {
     const [toggled, setToggled] = useState(false)
+    const {width, height} = useWindowDimensions();
+
+    useEffect(() => {
+        if(width < 1200) setToggled(true)
+    }, [width])
+
     return (
-        <div className={`relative border-r border-purple-light pt-4 ${toggled? 'w-[30px]' : 'w-[200px] '}`}>
+        <div className={`hidden md:block relative border-r border-purple-light pt-4 ${toggled? 'w-[30px]' : 'w-[200px] '}`}>
             {toggled && 
                 <p onClick={() => setToggled(!toggled)} className='absolute top-[60px] left-[-37px] flex flex-row text-[10px] w-[100px] gap-2 cursor-pointer hover:underline rotate-90'>
                     <ChevronsDown className='w-4 h-4' /> 

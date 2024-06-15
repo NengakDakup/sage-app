@@ -17,7 +17,9 @@ module.exports = {
       },
     },
     extend: {
-      
+      screens: {
+        "md": "900px",
+      },
       width: {
         'custom-743': '743px',
       },
