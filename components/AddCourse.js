@@ -18,8 +18,8 @@ const AddCourse = () => {
   return (
     <Dialog>
   <DialogTrigger>Open</DialogTrigger>
-  <div className='max-w-[70%] md:w-screen'>
-  <DialogContent className='gradient-border w-[350px] h-[580px] px-8 md:w-full'>
+  <div className='min-w-[70%] md:w-screen'>
+  <DialogContent className='md:gradient-border w-[350px] h-[580px] rounded-xl px-8 md:w-full'>
     <DialogHeader>
       <DialogTitle className='pb-5'>Add A Course</DialogTitle>
       <DialogDescription className='flex flex-col gap-8'>
