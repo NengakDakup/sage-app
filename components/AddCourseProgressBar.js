@@ -21,7 +21,7 @@ const AddCourseProgressBar = () => {
         <div className='flex flex-col justify-center items-center gap-2'>
             <div className='flex flex-col gap-3'>
                 <p className='font-bold'>Uploading document</p>
-                <div className='flex justify-center items-center gap-2'><p className='font-extrabold'>Scanning Document</p></div>
+                <p className='font-extrabold text-white'>Scanning Document</p>
                 <p className='font-bold'>Finishing Up</p>
             </div>
             <Button variant="light" className="w-full">Hide</Button>
