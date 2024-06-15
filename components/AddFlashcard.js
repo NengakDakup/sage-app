@@ -15,7 +15,7 @@ const AddFlashcard = () => {
     <div>
 <Dialog>
   <DialogTrigger>Open</DialogTrigger>
-  <DialogContent className='gradient-border w-[570px]'>
+  <DialogContent className='md:gradient-border rounded-xl w-[570px] md:w-[570px]'>
     <DialogHeader>
       <DialogTitle className='pb-5'>Add A Flashcard</DialogTitle>
       <DialogDescription className='flex flex-col justify-center items-center gap-5'>
