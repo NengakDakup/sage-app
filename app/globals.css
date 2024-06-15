@@ -123,3 +123,16 @@
   .custom-card-left {
     @apply w-[200px] h-[220px] bg-customCardsLeft border border-solid border-white rounded-2xl absolute;
   }
+
+  
+  
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;     /* Firefox */
+    -webkit-overflow-scrolling: touch; /* Hide scrollbar for Webkit-based browsers (Chrome, Safari) */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
