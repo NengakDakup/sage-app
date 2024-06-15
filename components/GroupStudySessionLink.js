@@ -12,6 +12,7 @@ import {
   import { Button } from '@/components/ui/button' 
   import { Copy } from 'lucide-react';
   import Image from 'next/image'
+  import Link from 'next/link'
   
 const GroupStudySessionLink = () => {
   return (
@@ -34,10 +35,10 @@ const GroupStudySessionLink = () => {
           </div>
             <p className='font-semibold text-white'>Share to</p>
           <div className='flex justify-around'>
-          <Image src='/images/whatsapp.svg' alt='whatsapp' width={36} height={36} />
-          <Image src='/images/Facebook.svg' alt='facebook' width={45} height={45} />
-          <Image src='/images/Twitter.svg' alt='twitter' width={43} height={43} />
-          <Image src='/images/Gmail.svg' alt='gmail' width={36} height={36} />
+         <Link href='#' className='flex flex-col justify-center items-center gap-2'><Image src='/images/whatsapp.svg' alt='whatsapp' width={36} height={36} />whatsapp</Link> 
+         <Link href='#' className='flex flex-col justify-center items-center gap-2'><Image src='/images/Facebook.svg' alt='facebook' width={45} height={45} />Facebook</Link>
+         <Link href='#' className='flex flex-col justify-center items-center gap-2'><Image src='/images/Twitter.svg' alt='twitter' width={43} height={43} />X</Link>
+         <Link href='#' className='flex flex-col justify-center items-center gap-2'><Image src='/images/Gmail.svg' alt='gmail' width={36} height={36} />Gmail</Link>
           </div>
         </div>
       </DialogDescription>
