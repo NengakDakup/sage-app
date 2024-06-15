@@ -11,6 +11,7 @@ import {
   import { Input } from "@/components/ui/input"
   import { Button } from '@/components/ui/button' 
   import { Copy } from 'lucide-react';
+  import Image from 'next/image'
   
 const GroupStudySessionLink = () => {
   return (
