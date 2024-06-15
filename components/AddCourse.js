@@ -13,11 +13,13 @@ import {
   import { File } from 'lucide-react';
   import { X } from 'lucide-react';
   import { Button } from '@/components/ui/button'
+
 const AddCourse = () => {
   return (
     <Dialog>
   <DialogTrigger>Open</DialogTrigger>
-  <DialogContent className='gradient-border w-[350px] md:w-full'>
+  <div className='max-w-[70%] md:w-screen'>
+  <DialogContent className='gradient-border w-[350px] h-[580px] px-8 md:w-full'>
     <DialogHeader>
       <DialogTitle className='pb-5'>Add A Course</DialogTitle>
       <DialogDescription className='flex flex-col gap-8'>
@@ -51,6 +53,7 @@ const AddCourse = () => {
       </DialogDescription>
     </DialogHeader>
   </DialogContent>
+  </div>
 </Dialog>
 
   )
