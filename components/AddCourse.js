@@ -17,7 +17,7 @@ const AddCourse = () => {
   return (
     <Dialog>
   <DialogTrigger>Open</DialogTrigger>
-  <DialogContent className='gradient-border w-full md:w-[350px]'>
+  <DialogContent className='gradient-border w-[350px] md:w-full'>
     <DialogHeader>
       <DialogTitle className='pb-5'>Add A Course</DialogTitle>
       <DialogDescription className='flex flex-col gap-8'>
