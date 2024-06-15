@@ -11,7 +11,7 @@ import { GroupMember } from './GroupMember';
 
 const MobileHeader = () => {
     return (
-        <div className='z-100 md:hidden flex flex-row w-full items-center justify-between h-[61px] absolute top-0 left-0 px-4'>
+        <div className='z-100 md:hidden flex flex-row w-full items-center justify-between h-[61px] absolute top-0 left-0 px-4 border-b border-purple-light'>
             <ListMinus className='cursor-pointer' />
             <div className='border border-purple-light flex flex-row gap-2 px-2 items-center rounded-xl py-2 text-xs'>
                 <Book />
