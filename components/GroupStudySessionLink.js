@@ -21,10 +21,17 @@ const GroupStudySessionLink = () => {
     <DialogHeader>
       <DialogTitle className='pb-4'>Group Study Session</DialogTitle>
       <DialogDescription className=''>
-        <div className='relative'>
+        <div className='relative flex flex-col gap-5'>
             <Label className="text-gray-600 text-xs" htmlFor="text">Enjoy the bliss of company. Share with your friends and mates.</Label>
             <Input id="input" type="input" className='' placeholder="https://sage.ai/gr/********" />
-            <Button variant="light" className="w-[150px] h-[30px] flex justify-center items-center gap-1"><Copy className='w-3 h-3 text-white'/>Copy Link</Button>
+            <Button variant="light" className="w-[98px] h-[30px] text-[10px] flex justify-center items-center gap-1 absolute right-2 top-10"><Copy className='w-8 h-8 text-white'/>Copy Link</Button>
+
+            <div className="flex items-center w-full">
+                <hr className="flex-1 border-t border-gray-600" />
+                <p className="mx-4 text-xs italic text-gray-600">OR</p>
+                <hr className="flex-1 border-t border-gray-600" />
+          </div>
+        
         </div>
       </DialogDescription>
     </DialogHeader>
