@@ -19,13 +19,13 @@ const MobileCourseItemsMenu = ({setMobileLeftToggled}) => {
 
         </div>
 
-        {!toggled &&
-            <div className='flex flex-col w-full h-full overflow-y-scroll mt-6 py-6 px-3 gap-4 border-t border-purple-light'>
-                <CourseMenuItem />
-                <CourseMenuItem />
-                <CourseMenuItem />
-            </div>
-        }
+        
+        <div className='flex flex-col w-full h-full overflow-y-scroll mt-6 py-6 px-3 gap-4 border-t border-purple-light'>
+            <CourseMenuItem />
+            <CourseMenuItem />
+            <CourseMenuItem />
+        </div>
+
     </div>
   )
 }

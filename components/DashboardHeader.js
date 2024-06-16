@@ -71,7 +71,7 @@ const DesktopHeader = () => {
 export const DashboardHeader = ({setMobileLeftToggled,setMobileRightToggled}) => {
     return(
         <>
-            <MobileHeader />
+            <MobileHeader setMobileLeftToggled={setMobileLeftToggled} setMobileRightToggled={setMobileRightToggled} />
             <DesktopHeader />
         </>
     )

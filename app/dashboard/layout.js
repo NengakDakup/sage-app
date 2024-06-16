@@ -9,7 +9,7 @@ import React, {useState, useEffect} from 'react'
 export default function DashboardLayout ({children}) {
   const [toggled, setToggled] = useState(false)
   const [mobileLeftToggled, setMobileLeftToggled] = useState(false)
-  const [mobileRightToggled, setMobileRightToggled] = useState(false)
+  const [mobileRightToggled, setMobileRightToggled] = useState(true)
   const {width, height} = useWindowDimensions();
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export default function DashboardLayout ({children}) {
         </div>
       </div>
       {mobileLeftToggled && <MobileCourseItemsMenu setMobileLeftToggled={setMobileLeftToggled} />}
-      <MobileFlashcardList />
+      {mobileRightToggled && <MobileFlashcardList setMobileRightToggled={setMobileRightToggled} />}
     </div>
   )
 }
