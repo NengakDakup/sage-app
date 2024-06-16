@@ -1,17 +1,23 @@
 import React from 'react'
 import Image from 'next/image'
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, SquarePlus, Users } from 'lucide-react';
+import { Button } from './ui/button'
+import CourseMenuItem from './CourseMenuItem';
 
-const MobileLeftSideBar = () => {
+const MobileLeftSideBar = ({toggled, setToggled}) => {
   return (
-    <div className='bg-blue-darkest pt-16 w-[330px] h-[852px]'>
-        <div className='w-full flex justify-between items-center'>
-            <Image src='/images/logo.png' alt='SageAI' width={36} height={36} />
+    <div className='bg-blue-darkest pt-16 w-[330px] h-[852px] flex flex-col justify-center items-start'>
+        <div className='w-full flex justify-between items-center px-4'>
+            <div className='flex justify-center items-center gap-2'>
+                <Image src='/images/logo.png' alt='SageAI' width={36} height={36} />
+                <p>SAGE</p>
+            </div>
+            
             <ChevronLeft />
         </div>
         
-        <div className='flex justify-start items-end gap-1'>
-            <div>
+        <div className='flex justify-start items-end gap-1 px-4 pt-4'>
+            <div className='rounded-full w-[44px] h-[44px] border border-solid border-gray-400'>
                 <Image src='/images/placeholder-image.png' className='rounded-full w-[44px] h-[44px]' alt='SageAI' width={36} height={36} />
             </div>
              
@@ -20,6 +26,28 @@ const MobileLeftSideBar = () => {
                 <p className='text-xs text-red-600'>Log Out</p>
             </div>
         </div>
+
+        <div className='flex flex-col w-full mt-12 gap-4 px-4'>
+            <Button className={`w-full py-6 gap-4 ${toggled? "justify-center" : "justify-start"}`} variant="dark-dashed">
+                <SquarePlus />
+                {!toggled && "New Chat"}
+            </Button>
+
+            <Button className={`w-full py-6 justify-start gap-4 border-white ${toggled? "justify-center" : "justify-start"}`} variant="outline">
+                <Users />
+                {!toggled && "Start a group Session"}
+            </Button>
+        </div>
+
+        {!toggled &&
+            <div className='flex flex-col w-full h-full overflow-y-scroll mt-6 py-6 px-3 gap-4 border-t border-purple-light'>
+                <CourseMenuItem />
+                <CourseMenuItem />
+                <CourseMenuItem />
+
+
+            </div>
+        }
     </div>
   )
 }
