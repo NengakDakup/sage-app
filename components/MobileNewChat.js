@@ -4,13 +4,13 @@ import { ChevronDown, SquarePlus, Users } from 'lucide-react';
 import { Button } from './ui/button'
 import CourseMenuItem from './CourseMenuItem';
 
-const MobileLeftSideBar = ({toggled, setToggled}) => {
+const MobileNewChat = ({toggled, setToggled}) => {
   return (
     <div className='bg-blue-darkest pt-16 w-full h-[727px] rounded-b-xl'>
         <div className='w-full flex justify-between items-center px-4'>
             <div className='flex justify-center items-center gap-2'>
                 <Image src='/images/logo.png' alt='SageAI' width={36} height={36} />
-                
+                <p className='font-bold'>SAGE</p>
             </div>
             
             <ChevronDown />
@@ -28,12 +28,12 @@ const MobileLeftSideBar = ({toggled, setToggled}) => {
         </div>
 
         <div className='flex flex-col w-full mt-12 gap-4 px-4'>
-            <Button className={`w-full py-6 gap-4 ${toggled? "justify-center" : "justify-start"}`} variant="dark-dashed">
+            <Button className={`w-full py-6 gap-4 ${toggled? "justify-start" : "justify-center"}`} variant="dark-dashed">
                 <SquarePlus />
                 {!toggled && "New Chat"}
             </Button>
 
-            <Button className={`w-full py-6 justify-start gap-4 border-white ${toggled? "justify-center" : "justify-start"}`} variant="outline">
+            <Button className={`w-full py-6 justify-start gap-4 border-white ${toggled? "justify-start" : "justify-center"}`} variant="outline">
                 <Users />
                 {!toggled && "Start a group Session"}
             </Button>
@@ -52,4 +52,4 @@ const MobileLeftSideBar = ({toggled, setToggled}) => {
   )
 }
 
-export default MobileLeftSideBar
+export default MobileNewChat
