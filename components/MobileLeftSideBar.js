@@ -5,8 +5,8 @@ import CourseMenuItem from './CourseMenuItem';
 const MobileCourseItemsMenu = ({toggled, setToggled}) => {
   return (
     <div className='bg-blue-darkest w-[330px] h-[852px] flex flex-col justify-center items-start'>
-        <div className='w-full flex justify-between items-center'>
-            <p>My Courses</p>
+        <div className='w-full flex justify-between items-center pt-16 px-4'>
+            <p className='text-[17px] font-bold'>My Courses</p>
             <ChevronLeft />
         </div>
 
