@@ -4,7 +4,7 @@ import { DashboardFlashcards } from './DashboardFlashcards';
 
 const MobileFlashcardList = ({setMobileRightToggled}) => {
   return (
-    <div className='bg-blue-darkest w-[330px] h-full px-6 fixed right-0 border-l border-purple-light'>
+    <div className='bg-blue-darkest w-[330px] h-full px-6 fixed right-0 border-l border-purple-light md:hidden'>
       <div className='flex justify-between items-center py-16'>
         <div className='flex gap-3'>
             <Album />
