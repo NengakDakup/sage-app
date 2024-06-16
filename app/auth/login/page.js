@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { X } from 'lucide-react';
-import MobileLeftSideBar from '@/components/MobileLeftSideBar'
+import MobileFlashcardList from '@/components/MobileFlashcardList'
 
 const Login = () => {
   return (
@@ -49,7 +49,7 @@ const Login = () => {
             </Link>
           </div>    
         </div>
-        <MobileLeftSideBar/>
+        <MobileFlashcardList/>
       </div>
   )
 }
