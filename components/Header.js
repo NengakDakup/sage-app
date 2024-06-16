@@ -10,7 +10,6 @@ const Header = () => {
                 <Image src='/images/logo.png' alt='SageAI' width={36} height={36} />
                 <p className='ml-2 font-bold text-lg'>SAGE</p>
             </Link>
-            
             <div>
                 <Link href='/auth/login' className='hidden md:inline'>
                     <Button variant="dark">Log In</Button>
@@ -19,7 +18,6 @@ const Header = () => {
                 <Link href='/auth/signup'>
                     <Button variant="light" className="ml-4">Get Started</Button>
                 </Link>
-
             </div>
         </div>
     </div>
