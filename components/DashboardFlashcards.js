@@ -17,7 +17,6 @@ export const DashboardFlashcards = ({gradient}) => {
                  of all currents entering and leaving a node
                   in an electrical circuit is zero
             </p>
-            
             <div className='flex justify-between items-center'>
                 <div className='flex justify-center items-center gap-1'>
                     <Copy className='w-[14px] h-[14px]'/>
