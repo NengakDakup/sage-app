@@ -24,7 +24,7 @@ export default function DashboardLayout ({children}) {
       
       <div className={`flex flex-col grow h-full relative ${toggled && 'w-4/5'}`}>
         <DashboardHeader setMobileLeftToggled={setMobileLeftToggled} setMobileRightToggled={setMobileRightToggled} />
-        <div className='flex flex-row h-full pt-16 md:pt-24'>
+        <div className='flex flex-row h-full pt-20 md:pt-24'>
           {children}
         </div>
       </div>

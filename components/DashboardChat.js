@@ -7,9 +7,9 @@ import ChatInput from './ChatInput';
 
 const DashboardChat = () => {
   return (
-    <div className='flex flex-col grow border-r border-purple-light px-3 overflow-y-scroll overflow-x-hidden relative'>
+    <div className='flex flex-col grow border-r border-purple-light px-3 pt-8 overflow-y-scroll overflow-x-hidden relative'>
       
-      <div className='flex flex-col gap-4 w-full max-w-[900px] mx-auto relative'>
+      <div className='flex flex-col gap-4 w-full max-w-[900px] mx-auto relative pb-[200px]'>
         <WelcomeChat/>
         <Userchat/>
         <SageAiChat/>
