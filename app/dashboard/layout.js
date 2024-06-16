@@ -9,7 +9,7 @@ import React, {useState, useEffect} from 'react'
 export default function DashboardLayout ({children}) {
   const [toggled, setToggled] = useState(false)
   const [mobileLeftToggled, setMobileLeftToggled] = useState(false)
-  const [mobileRightToggled, setMobileRightToggled] = useState(true)
+  const [mobileRightToggled, setMobileRightToggled] = useState(false)
   const {width, height} = useWindowDimensions();
 
     useEffect(() => {
