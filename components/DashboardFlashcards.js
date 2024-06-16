@@ -8,7 +8,7 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 export const DashboardFlashcards = ({gradient}) => {
   return (
         <div className={`${gradient? "bg-gradient-to-b from-[#A109FF] to-[#4912FF]":"bg-[#252031]"} flex flex-col  p-4 rounded-lg relative`}>
-            <div className=''>
+            <div className='w-max h-max'>
                 <FontAwesomeIcon icon={faBookmark} className='rotate-[-90deg] absolute left-0  top-1 text-[#743999] text-3xl'/> 
                 <p className='text-[10px] font-bold absolute left-0 top-3'>#23</p>
             </div> 
