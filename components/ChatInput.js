@@ -4,7 +4,7 @@ import { Plus, SendHorizontal } from 'lucide-react';
 
 const ChatInput = () => {
   return (
-    <div className='w-full flex gap-2 relative'>
+    <div className='w-full flex gap-2 relative px-2 md:px-0'>
         <div className='w-12 h-12 flex justify-center items-center rounded-full bg-[#252031]'>
             <Plus className='w-6 h-6' />
         </div>

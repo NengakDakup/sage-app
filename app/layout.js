@@ -13,8 +13,8 @@ export default function RootLayout({ children }) {
   // Check if the current route is the home page
   const isHomePage = pathname === '/';
   return (
-    <html className="dark" lang="en">
-      <body className={montserrat.className + " overflow-x-hidden"} style={{backgroundImage: `url('/images/bg.png')`}}>
+    <html className="dark w-screen h-screen relative bg-blue overflow-hidden" lang="en">
+      <body className={montserrat.className + " w-screen overflow-x-hidden"} style={{backgroundImage: `url('/images/bg.png')`}}>
         {isHomePage && <Header />}
         {children}
       </body>

@@ -7,7 +7,7 @@ import ChatInput from './ChatInput';
 
 const DashboardChat = () => {
   return (
-    <div className='flex flex-col grow border-r border-purple-light px-3 overflow-y-scroll relative'>
+    <div className='flex flex-col grow border-r border-purple-light px-3 overflow-y-scroll overflow-x-hidden relative'>
       
       <div className='flex flex-col gap-4 w-full max-w-[900px] mx-auto relative'>
         <WelcomeChat/>
@@ -31,7 +31,7 @@ const DashboardChat = () => {
       </div>
       
 
-      <div className='flex flex-col w-full h-min gap-2 sticky bottom-0 bg-blue-darkest py-4'>
+      <div className='flex flex-1 flex-col md:w-full h-min gap-2 fixed md:sticky bottom-0 left-0 right-0 w-screen bg-blue-darkest py-4'>
         <div className='flex flex-col gap-2 w-full max-w-[700px] mx-auto'>
           <UserPrompt/>
           <ChatInput />
