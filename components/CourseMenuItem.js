@@ -10,7 +10,6 @@ const CourseMenuItem = () => {
                 <p className='font-semibold'>Intro To AI</p>
                 <p className='text-slate-300 text-[10px]'>2 documents submitted</p>
             </div>
-
         </div>
         <EllipsisVertical className='w-5 h-5' />
 
