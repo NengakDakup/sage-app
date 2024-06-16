@@ -13,9 +13,7 @@ const ChatInput = () => {
           <div className='w-8 h-8 rounded-full flex justify-center items-center  bg-gradient-to-b from-[#A109FF] to-[#4912FF] absolute right-3 bottom-[8.5px] cursor-pointer'>
               <SendHorizontal className='w-[18px] h-[18px]' />
           </div>
-        </div>
-
-        
+        </div> 
     </div>
   )
 }
