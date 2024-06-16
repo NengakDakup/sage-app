@@ -28,15 +28,11 @@ const MobileNewChat = ({toggled, setToggled}) => {
         </div>
 
         <div className='flex flex-col w-full mt-12 gap-4 px-4'>
-            <Button className={`w-full py-6 gap-4 ${toggled? "justify-start" : "justify-center"}`} variant="dark-dashed">
+            <Button className={`w-full py-6 gap-4 ${toggled? "justify-center" : "justify-start"}`} variant="dark-dashed">
                 <SquarePlus />
                 {!toggled && "New Chat"}
             </Button>
 
-            <Button className={`w-full py-6 justify-start gap-4 border-white ${toggled? "justify-start" : "justify-center"}`} variant="outline">
-                <Users />
-                {!toggled && "Start a group Session"}
-            </Button>
         </div>
 
         {!toggled &&
