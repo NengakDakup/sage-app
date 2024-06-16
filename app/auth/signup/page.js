@@ -19,7 +19,7 @@ const SignUp = () => {
             <h1 className='font-bold text-xl md:text-3xl'>Get Started</h1>
         </div>
 
-        <AuthButtons/>
+        
 
         <div className="flex items-center w-full">
                 <hr className="flex-1 border-t border-gray-600" />

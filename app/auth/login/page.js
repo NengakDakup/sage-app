@@ -7,12 +7,11 @@ import { Button } from '@/components/ui/button'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { X } from 'lucide-react';
-import MobileFlashcardList from '@/components/MobileFlashcardList'
 
 const Login = () => {
   return (
     <div className="flex flex-col items-center h-full p-4 md:p-12">
-      <div className=" relative hidden flex-col w-full h-min max-w-[743px] rounded-xl gap-12 py-12 px-4 md:px-16 my-auto md:gradient-border-darkest">
+      <div className=" relative flex flex-col w-full h-min max-w-[743px] rounded-xl gap-12 py-12 px-4 md:px-16 my-auto md:gradient-border-darkest">
         <Link href='#' className='hidden md:block'>
           <X className='text-[#FF7193] absolute right-[40px] hidden md:block'/> 
         </Link>
@@ -21,7 +20,7 @@ const Login = () => {
             <h1 className='font-bold text-xl md:text-3xl'>Welcome Back</h1>
           </div>
           
-          <AuthButtons/>
+          
 
           <div className="flex items-center w-full">
             <hr className="flex-1 border-t border-gray-600" />
@@ -49,7 +48,7 @@ const Login = () => {
             </Link>
           </div>    
         </div>
-        <MobileFlashcardList/>
+        
       </div>
   )
 }
