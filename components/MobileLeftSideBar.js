@@ -2,7 +2,9 @@ import React from 'react'
 
 const MobileLeftSideBar = () => {
   return (
-    <div>MobileLeftSideBar</div>
+    <div className='bg-blue-darkest w-[330px] h-[852px]'>
+
+    </div>
   )
 }
 

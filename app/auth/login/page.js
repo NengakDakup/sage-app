@@ -12,7 +12,7 @@ import MobileLeftSideBar from '@/components/MobileLeftSideBar'
 const Login = () => {
   return (
     <div className="flex flex-col items-center h-full p-4 md:p-12">
-        <div className=" relative flex flex-col w-full h-min max-w-[743px] rounded-xl gap-12 py-12 px-4 md:px-16 my-auto md:gradient-border-darkest">
+      <div className=" relative hidden flex-col w-full h-min max-w-[743px] rounded-xl gap-12 py-12 px-4 md:px-16 my-auto md:gradient-border-darkest">
         <Link href='#' className='hidden md:block'>
           <X className='text-[#FF7193] absolute right-[40px] hidden md:block'/> 
         </Link>
