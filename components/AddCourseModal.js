@@ -9,7 +9,7 @@ import {
   } from "@/components/ui/dialog"
   import { Input } from "@/components/ui/input" 
   import { FilePlus, Image, File, X } from 'lucide-react';
-  
+
   import { Button } from '@/components/ui/button'
 
 const AddCourseModal = ({children}) => {
