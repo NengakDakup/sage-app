@@ -8,8 +8,7 @@ import {
     DialogTrigger,
   } from "@/components/ui/dialog"
   import { Input } from "@/components/ui/input" 
-  import { FilePlus } from 'lucide-react';
-  import { Image } from 'lucide-react';
+  import { FilePlus, Image } from 'lucide-react';
   import { File } from 'lucide-react';
   import { X } from 'lucide-react';
   import { Button } from '@/components/ui/button'
