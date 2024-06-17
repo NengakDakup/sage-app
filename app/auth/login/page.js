@@ -13,6 +13,7 @@ import { loginUser } from '@/api/auth'
 
 const Login = () => {
   const router = useRouter();
+  const [errors, setErrors] = useState({})
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -45,9 +46,10 @@ const Login = () => {
       if (isAxiosError(error)) {
         if (error.response) {
           const { data, status } = error.response;
-          if (status === 401 || status === 400) {
-            console.log(data);
-            // setError(data.message);
+          console.log(data, status);
+          if (status === 401 || status === 400 || status === 404) {
+            
+            if(data.errors) setErrors(data.errors)
             // setOpenDialog(true);
           }
         }
@@ -84,6 +86,7 @@ const Login = () => {
                 id="email"  
                 placeholder="Enter Registered Email" 
               />
+              {errors.email && <Label className='text-red-600'>{errors.email}</Label>}
             </div>
             <div className="flex flex-col mb-4 gap-2">
               <Label className="text-gray-600" htmlFor="password">Password</Label>
@@ -95,6 +98,7 @@ const Login = () => {
                 id="password" 
                 placeholder="Enter Password" 
               />
+              {errors.password && <Label className='text-red-600'>{errors.password}</Label>}
             </div>
             <Button variant="light" className="w-full">Log In</Button>
           </form>
