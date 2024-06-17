@@ -1,8 +1,10 @@
 import { ListMinus, Menu, SquarePlus, Users } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
-import { Button } from './ui/button'
-import CourseMenuItem from './CourseMenuItem'
+import { Button } from '@/components/ui/button'
+import CourseMenuItem from '@/components/CourseMenuItem'
+import AddCourseModal from '@/components/AddCourseModal'
+import GroupStudySessionModal from './GroupStudySessionModal'
 
 const LeftSideBar = ({toggled, setToggled}) => {
   return (
@@ -25,15 +27,19 @@ const LeftSideBar = ({toggled, setToggled}) => {
             
         </div>
         <div className='flex flex-col w-full mt-12 gap-4'>
-            <Button className={`w-full py-6 gap-4 ${toggled? "justify-center" : "justify-start"}`} variant="dark-dashed">
-                <SquarePlus />
-                {!toggled && "New Course"}
-            </Button>
-
-            <Button className={`w-full py-6 justify-start gap-4 border-white ${toggled? "justify-center" : "justify-start"}`} variant="outline">
-                <Users />
-                {!toggled && "Start a group Session"}
-            </Button>
+            <AddCourseModal>
+                <Button className={`w-full py-6 gap-4 ${toggled? "justify-center" : "justify-start"}`} variant="dark-dashed">
+                    <SquarePlus />
+                    {!toggled && "New Course"}
+                </Button>
+            </AddCourseModal>
+            <GroupStudySessionModal>
+                <Button className={`w-full py-6 justify-start gap-4 border-white ${toggled? "justify-center" : "justify-start"}`} variant="outline">
+                    <Users />
+                    {!toggled && "Start a group Session"}
+                </Button>
+            </GroupStudySessionModal>
+            
 
         </div>
         

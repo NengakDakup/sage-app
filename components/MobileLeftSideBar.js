@@ -2,6 +2,7 @@ import React from 'react'
 import { ChevronLeft, SquarePlus } from 'lucide-react';
 import { Button } from './ui/button'
 import CourseMenuItem from './CourseMenuItem';
+import AddCourseModal from './AddCourseModal';
 
 const MobileCourseItemsMenu = ({setMobileLeftToggled}) => {
   return (
@@ -12,10 +13,13 @@ const MobileCourseItemsMenu = ({setMobileLeftToggled}) => {
         </div>
 
         <div className='flex flex-col w-full mt-12 gap-4 px-4'>
-            <Button className={`w-full py-6 gap-4 $justify-center`} variant="dark-dashed">
-                <SquarePlus />
-                New Course
-            </Button>
+            <AddCourseModal>
+                <Button className={`w-full py-6 gap-4 $justify-center`} variant="dark-dashed">
+                    <SquarePlus />
+                    New Course
+                </Button>
+            </AddCourseModal>
+            
 
         </div>
 
