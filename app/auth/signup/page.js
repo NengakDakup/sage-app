@@ -87,15 +87,40 @@ const SignUp = () => {
             <form>
                 <div className="flex flex-col mb-4 gap-2">
                     <Label className="text-gray-600" htmlFor="email">Email</Label>
-                    <Input id="email" type="text" placeholder="Enter Email" />
+                    <Input
+                     type="email" 
+                     name="email" 
+                     id="email"
+                     value={formData.email}
+                     onChange={handleChange}
+                     placeholder="Enter Email"
+                     className={`${errors.email && 'border-red-400'}`}
+                     />
+                    {errors.email && <Label className='text-red-400'>{errors.email}</Label>}
+
                 </div>
                 <div className="flex flex-col mb-4 gap-2">
                     <Label className="text-gray-600" htmlFor="username">Username</Label>
-                    <Input id="username" type="text" placeholder="Enter Username" />
+                    <Input  
+                    type="username"
+                    name="username" 
+                    value={formData.username}
+                    onChange={handleChange} 
+                    id="username"
+                    placeholder="Enter Username" 
+                    />
+                    {errors.username && <Label className='text-red-400'>{errors.username}</Label>}
                 </div>
                 <div className="flex flex-col mb-4 gap-2">
                     <Label className="text-gray-600" htmlFor="password1">Create Password</Label>
-                    <Input id="password1" type="password" placeholder="Enter Password" />
+                    <Input 
+                    id="password1" 
+                    name="password"
+                    type="password" 
+                    value={formData.password}
+                    onChange={handleChange}
+                    placeholder="Enter Password" 
+                    />
                 </div>
                 <div className="flex flex-col mb-4 gap-2">
                     <Label className="text-gray-600" htmlFor="password2">Confirm Password</Label>
