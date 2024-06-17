@@ -42,11 +42,15 @@ export function validateSignupInput(data) {
     data.confirm_password = !isEmpty(data.confirm_password) ? data.confirm_password : '';
 
     if (!Validator.equals(data.password, data.confirm_password)){
-        errors.password = 'Passwords do not match';
+        errors.confirm_password = 'Passwords do not match';
     }
 
     if (!Validator.isLength(data.password, {min: 4, max: 30})){
         errors.password = 'Password must not be less than 4 Characters';
+    }
+
+    if (!Validator.isLength(data.username, {min: 4, max: 30})){
+        errors.username = 'Username must not be less than 4 Characters';
     }
 
     if (!Validator.isEmail(data.email)){
@@ -57,9 +61,19 @@ export function validateSignupInput(data) {
         errors.email = 'Email field is required';
     }
 
+    if(Validator.isEmpty(data.username)) {
+        errors.username = 'Username field is required';
+    }
+
     if(Validator.isEmpty(data.password)) {
         errors.password = 'Password field is required';
     }
+
+    if(Validator.isEmpty(data.confirm_password)) {
+        errors.confirm_password = 'Confirm Password field is required';
+    }
+
+    
 
     return {
         errors,

@@ -12,6 +12,7 @@ import { validateSignupInput } from '@/common/validation';
 import { ThreeDots } from 'react-loader-spinner';
 import { useUser } from '@/context/UserContext';
 import { useRouter } from 'next/navigation'
+import { isAxiosError } from 'axios'
 
 const SignUp = () => {
   const router = useRouter();
@@ -84,7 +85,7 @@ const SignUp = () => {
                 <hr className="flex-1 border-t border-gray-600" />
             </div> */}
 
-            <form>
+            <form onSubmit={onSubmitForm}>
                 <div className="flex flex-col mb-4 gap-2">
                     <Label className="text-gray-600" htmlFor="email">Email</Label>
                     <Input
@@ -114,26 +115,30 @@ const SignUp = () => {
                 <div className="flex flex-col mb-4 gap-2">
                     <Label className="text-gray-600" htmlFor="password1">Create Password</Label>
                     <Input 
-                    name="password"
-                    type="password" 
+                    type="password"
+                    name="password" 
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="Enter Password" 
                     id="password1" 
                     />
+                    {errors.password && <Label className='text-red-400'>{errors.password}</Label>}
                 </div>
                 <div className="flex flex-col mb-4 gap-2">
                     <Label className="text-gray-600" htmlFor="password2">Confirm Password</Label>
                     <Input 
                     type="password" 
-                    name="password"
+                    name="confirm_password"
                     value={formData.confirm_password}
                     onChange={handleChange}
                     placeholder="Confirm Password"
                     id="password2"
                     />
+                    {errors.confirm_password && <Label className='text-red-400'>{errors.confirm_password}</Label>}
                 </div>
-                <Button variant="light" className="w-full">Create Account</Button>
+                <Button disabled={loading} variant="light" className="w-full disabled">
+                    {loading? <ThreeDots color="#fff"  height="35" width="35" /> : "Create Account"}
+                </Button>
             </form>
 
             <div className='flex items-center gap-6'>
