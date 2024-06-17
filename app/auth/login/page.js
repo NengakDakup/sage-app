@@ -1,5 +1,7 @@
 'use client'
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation';
+import { isAxiosError } from "axios";
 import AuthButtons from '@/components/AuthButtons'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,8 +9,10 @@ import { Button } from '@/components/ui/button'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { X } from 'lucide-react';
+import { loginUser } from '@/api/auth'
 
 const Login = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -23,9 +27,32 @@ const Login = () => {
   };
 
 
-  const onSubmitForm = (e) => {
+  const onSubmitForm = async (e) => {
     e.preventDefault()
-    console.log(e.target);
+    
+    try {
+      const response = await loginUser(formData);
+      const token = response.data.token;
+      const user = response.data.user;
+
+      localStorage.setItem("access_token", token);
+      // localStorage.setItem("user_id", user.id);
+
+      
+      // dispatch(setUserDetails(userData.data));
+      return router.push('/dashboard');
+    } catch (error) {
+      if (isAxiosError(error)) {
+        if (error.response) {
+          const { data, status } = error.response;
+          if (status === 401 || status === 400) {
+            console.log(data);
+            // setError(data.message);
+            // setOpenDialog(true);
+          }
+        }
+      }
+    }
   }
 
   return (
