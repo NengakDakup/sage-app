@@ -10,10 +10,13 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { X } from 'lucide-react';
 import { loginUser } from '@/api/auth'
+import { validateLoginInput } from '@/common/validation';
+import { ThreeDots } from 'react-loader-spinner';
 
 const Login = () => {
   const router = useRouter();
   const [errors, setErrors] = useState({})
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -30,7 +33,12 @@ const Login = () => {
 
   const onSubmitForm = async (e) => {
     e.preventDefault()
-    
+    setErrors({})
+
+    const {errors, isValid} = validateLoginInput(formData)
+
+    if(!isValid) return setErrors(errors) 
+    setLoading(true)
     try {
       const response = await loginUser(formData);
       const token = response.data.token;
@@ -55,6 +63,7 @@ const Login = () => {
         }
       }
     }
+    setLoading(false)
   }
 
   return (
@@ -85,8 +94,9 @@ const Login = () => {
                 onChange={handleChange} 
                 id="email"  
                 placeholder="Enter Registered Email" 
+                className={`${errors.email && 'border-red-400'}`}
               />
-              {errors.email && <Label className='text-red-600'>{errors.email}</Label>}
+              {errors.email && <Label className='text-red-400'>{errors.email}</Label>}
             </div>
             <div className="flex flex-col mb-4 gap-2">
               <Label className="text-gray-600" htmlFor="password">Password</Label>
@@ -97,10 +107,13 @@ const Login = () => {
                 onChange={handleChange} 
                 id="password" 
                 placeholder="Enter Password" 
+                className={`${errors.password && 'border-red-400'}`}
               />
-              {errors.password && <Label className='text-red-600'>{errors.password}</Label>}
+              {errors.password && <Label className='text-red-400'>{errors.password}</Label>}
             </div>
-            <Button variant="light" className="w-full">Log In</Button>
+            <Button disabled={loading} variant="light" className="w-full disabled">
+              {loading? <ThreeDots color="#fff"  height="35" width="35" /> : "Log In"}
+            </Button>
           </form>
 
           <div className='flex items-center gap-6'>
