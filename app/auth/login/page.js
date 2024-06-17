@@ -12,11 +12,13 @@ import { X } from 'lucide-react';
 import { loginUser } from '@/api/auth'
 import { validateLoginInput } from '@/common/validation';
 import { ThreeDots } from 'react-loader-spinner';
+import { useUser } from '@/context/UserContext';
 
 const Login = () => {
   const router = useRouter();
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
+  const { setLoggedUser } = useUser();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -45,10 +47,8 @@ const Login = () => {
       const user = response.data.user;
 
       localStorage.setItem("access_token", token);
-      // localStorage.setItem("user_id", user.id);
-
+      setLoggedUser(user)
       
-      // dispatch(setUserDetails(userData.data));
       return router.push('/dashboard');
     } catch (error) {
       if (isAxiosError(error)) {

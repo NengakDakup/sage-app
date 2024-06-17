@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import { usePathname } from 'next/navigation';
 import Header from "@/components/Header";
 import "./globals.css";
+import { UserProvider } from "@/context/UserContext";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -15,8 +16,10 @@ export default function RootLayout({ children }) {
   return (
     <html className="dark w-screen h-screen relative bg-blue overflow-hidden" lang="en">
       <body className={montserrat.className + " w-screen overflow-x-hidden"} style={{backgroundImage: `url('/images/bg.png')`}}>
-        {isHomePage && <Header />}
-        {children}
+        <UserProvider>
+          {isHomePage && <Header />}
+          {children}
+        </UserProvider>
       </body>
     </html>
   );
