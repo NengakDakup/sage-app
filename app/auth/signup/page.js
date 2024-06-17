@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, {useState} from 'react'
 import AuthButtons from '@/components/AuthButtons'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -6,8 +7,64 @@ import { Button } from '@/components/ui/button'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { X } from 'lucide-react';
+import { createUser } from '@/api/auth'
+import { validateSignupInput } from '@/common/validation';
+import { ThreeDots } from 'react-loader-spinner';
+import { useUser } from '@/context/UserContext';
+import { useRouter } from 'next/navigation'
 
 const SignUp = () => {
+  const router = useRouter();
+  const [errors, setErrors] = useState({})
+  const [loading, setLoading] = useState(false)
+  const { setLoggedUser } = useUser();
+  const [formData, setFormData] = useState({
+    email: '',
+    username: '',
+    password: '',
+    confirm_password: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const onSubmitForm = async (e) => {
+    e.preventDefault()
+    setErrors({})
+
+    const {errors, isValid} = validateSignupInput(formData)
+
+    if(!isValid) return setErrors(errors) 
+    setLoading(true)
+    try {
+      const response = await createUser(formData);
+      const token = response.data.token;
+      const user = response.data.user;
+
+      localStorage.setItem("access_token", token);
+      setLoggedUser(user)
+      
+      return router.push('/dashboard');
+    } catch (error) {
+      if (isAxiosError(error)) {
+        if (error.response) {
+          const { data, status } = error.response;
+          if (status === 401 || status === 400 || status === 404) {
+            
+            if(data.errors) setErrors(data.errors)
+            // setOpenDialog(true);
+          }
+        }
+      }
+    }
+    setLoading(false)
+  }
+
   return (
     <div className="flex flex-col items-center h-full p-4 md:p-12 ">
     <div className="relative flex flex-col w-full h-min max-w-[743px] rounded-xl gap-12 py-12 px-4 md:px-16 my-auto md:gradient-border-darkest">
