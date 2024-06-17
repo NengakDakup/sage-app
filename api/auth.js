@@ -7,7 +7,7 @@ export const loginUser = (credentials) => {
 };
 
 export const createUser = (credentials) => {
-  return axiosInstance.post("/auth/signup/", { ...credentials });
+  return axiosInstance.post("/auth/register/", { ...credentials });
 };
 
 
