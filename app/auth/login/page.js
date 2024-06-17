@@ -1,5 +1,5 @@
-
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import AuthButtons from '@/components/AuthButtons'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,6 +9,25 @@ import { Label } from "@/components/ui/label"
 import { X } from 'lucide-react';
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+
+  const onSubmitForm = (e) => {
+    e.preventDefault()
+    console.log(e.target);
+  }
+
   return (
     <div className="flex flex-col items-center h-full p-4 md:p-12">
       <div className=" relative flex flex-col w-full h-min max-w-[743px] rounded-xl gap-12 py-12 px-4 md:px-16 my-auto md:gradient-border-darkest">
@@ -19,23 +38,36 @@ const Login = () => {
             <Image src='/images/logo.png' alt='SageAI' width={36} height={36} />
             <h1 className='font-bold text-xl md:text-3xl'>Welcome Back</h1>
           </div>
-{/*           
           
-
+          <AuthButtons />
           <div className="flex items-center w-full">
             <hr className="flex-1 border-t border-gray-600" />
             <p className="mx-4 text-xs italic text-gray-600">OR</p>
             <hr className="flex-1 border-t border-gray-600" />
-          </div> */}
+          </div>
 
-          <form>
+          <form onSubmit={onSubmitForm}>
             <div className="flex flex-col mb-4 gap-2">
               <Label className="text-gray-600" htmlFor="email">Email</Label>
-              <Input id="email" type="text" placeholder="Enter Registered Email" />
+              <Input 
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange} 
+                id="email"  
+                placeholder="Enter Registered Email" 
+              />
             </div>
             <div className="flex flex-col mb-4 gap-2">
               <Label className="text-gray-600" htmlFor="password">Password</Label>
-              <Input id="password" type="password" placeholder="Enter Password" />
+              <Input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange} 
+                id="password" 
+                placeholder="Enter Password" 
+              />
             </div>
             <Button variant="light" className="w-full">Log In</Button>
           </form>
