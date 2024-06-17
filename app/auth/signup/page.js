@@ -114,17 +114,24 @@ const SignUp = () => {
                 <div className="flex flex-col mb-4 gap-2">
                     <Label className="text-gray-600" htmlFor="password1">Create Password</Label>
                     <Input 
-                    id="password1" 
                     name="password"
                     type="password" 
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="Enter Password" 
+                    id="password1" 
                     />
                 </div>
                 <div className="flex flex-col mb-4 gap-2">
                     <Label className="text-gray-600" htmlFor="password2">Confirm Password</Label>
-                    <Input id="password2" type="password" placeholder="Enter Password" />
+                    <Input 
+                    type="password" 
+                    name="password"
+                    value={formData.confirm_password}
+                    onChange={handleChange}
+                    placeholder="Confirm Password"
+                    id="password2"
+                    />
                 </div>
                 <Button variant="light" className="w-full">Create Account</Button>
             </form>
