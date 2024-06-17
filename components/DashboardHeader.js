@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Input } from "@/components/ui/input"
@@ -8,6 +9,8 @@ import { UsersRound } from 'lucide-react';
 import { EllipsisVertical } from 'lucide-react';
 import { Button } from '@/components/ui/button'
 import { GroupMember } from './GroupMember';
+import { useUser } from '@/context/UserContext';
+import { useRouter } from 'next/navigation'
 
 const MobileHeader = ({setMobileLeftToggled,setMobileRightToggled}) => {
     return (
@@ -69,6 +72,11 @@ const DesktopHeader = () => {
 }
 
 export const DashboardHeader = ({setMobileLeftToggled,setMobileRightToggled}) => {
+    const { user } = useUser()
+    const router = useRouter()
+    useEffect(() => {
+        if(!user) return router.push("/auth/login");
+    }, [user])
     return(
         <>
             <MobileHeader setMobileLeftToggled={setMobileLeftToggled} setMobileRightToggled={setMobileRightToggled} />
