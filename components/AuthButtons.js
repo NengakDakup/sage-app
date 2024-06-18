@@ -2,7 +2,6 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-
 const AuthButtons = () => {
   return (
     <div className='flex flex-col justify-center items-center gap-8 w-full'>

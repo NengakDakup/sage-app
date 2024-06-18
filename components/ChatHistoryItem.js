@@ -16,5 +16,4 @@ const ChatHistoryItem = () => {
     </div>
   )
 }
-
 export default ChatHistoryItem
