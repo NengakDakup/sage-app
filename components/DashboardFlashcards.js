@@ -1,6 +1,5 @@
 import React from 'react'
-import { Copy } from 'lucide-react';
-import { ArrowDownToLine } from 'lucide-react';
+import { Copy, ArrowDownToLine } from 'lucide-react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 
