@@ -74,9 +74,9 @@ const DesktopHeader = () => {
 export const DashboardHeader = ({setMobileLeftToggled,setMobileRightToggled}) => {
     const { user } = useUser()
     const router = useRouter()
-    useEffect(() => {
-        if(!user) return router.push("/auth/login");
-    }, [user])
+    // useEffect(() => {
+    //     if(!user) return router.push("/auth/login");
+    // }, [user])
     return(
         <>
             <MobileHeader setMobileLeftToggled={setMobileLeftToggled} setMobileRightToggled={setMobileRightToggled} />

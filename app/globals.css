@@ -116,7 +116,17 @@
       box-sizing: border-box;
       border: 1px solid transparent;
       background: linear-gradient(hsl(var(--blue-darkest)), hsl(var(--blue-darkest))) padding-box, linear-gradient(hsl(var(--purple)),hsl(var(--blue))) border-box;
-  }
+    }
+
+    .btn-gradient-border {
+      box-sizing: border-box;
+      border: 2px solid transparent;
+      background: linear-gradient(hsl(var(--blue-darkest)), hsl(var(--blue-darkest))) padding-box, linear-gradient(hsl(var(--purple)),hsl(var(--blue))) border-box;
+    }
+
+    .btn-gradient-border:hover {
+      background: linear-gradient(hsl(var(--purple)), hsl(var(--blue))) padding-box, linear-gradient(hsl(var(--purple)),hsl(var(--blue))) border-box;
+    }
    
   }
 
