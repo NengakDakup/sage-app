@@ -136,7 +136,7 @@ const SignUp = () => {
                     />
                     {errors.confirm_password && <Label className='text-red-400'>{errors.confirm_password}</Label>}
                 </div>
-                <Button disabled={loading} variant="light" className="w-full disabled">
+                <Button type="submit" disabled={loading} variant="light" className="w-full disabled">
                     {loading? <ThreeDots color="#fff"  height="35" width="35" /> : "Create Account"}
                 </Button>
             </form>
