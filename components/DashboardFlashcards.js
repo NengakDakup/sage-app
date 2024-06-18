@@ -3,7 +3,6 @@ import { Copy, ArrowDownToLine } from 'lucide-react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 
-
 export const DashboardFlashcards = ({gradient}) => {
   return (
         <div className={`${gradient? "bg-gradient-to-b from-[#A109FF] to-[#4912FF]":"bg-[#252031]"} flex flex-col  p-4 rounded-lg relative`}>
