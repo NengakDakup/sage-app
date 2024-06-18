@@ -136,8 +136,7 @@ const DashboardChatHistory = () => {
                     <ChatHistoryItem />
                     <ChatHistoryItem />               
                 </div>
-            }
-            
+            }      
         </div>
     )
 }
