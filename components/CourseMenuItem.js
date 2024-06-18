@@ -16,5 +16,4 @@ const CourseMenuItem = () => {
     </div>
   )
 }
-
 export default CourseMenuItem
