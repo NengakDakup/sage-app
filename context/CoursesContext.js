@@ -38,13 +38,17 @@ export const DashboardProvider = ({ children }) => {
         setCourses(prevState => ({...prevState, list: [data,...prevState.list]}))
     }
 
+    const removeCourse = (id) => {
+        setCourses(prevState => ({...prevState, list: prevState.list.filter((course) => course._id !== id)}))
+    }
+
 
     useEffect(() => {
         fetchCourses();
     }, []);
 
     return (
-        <CoursesContext.Provider value={{ courses, fetchCourses, addNewCourse, activeCourse, setActiveCourse }}>
+        <CoursesContext.Provider value={{ courses, fetchCourses, addNewCourse, activeCourse, setActiveCourse, removeCourse }}>
             {children}
         </CoursesContext.Provider>
     );

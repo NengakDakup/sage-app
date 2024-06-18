@@ -9,9 +9,10 @@ import {
 import React, { useEffect, useState } from 'react'
 import { PopoverArrow } from '@radix-ui/react-popover'
 import { ThreeDots } from 'react-loader-spinner'
+import { deleteCourse } from '@/api/course'
 
 const CourseMenuItem = ({course}) => {
-  const {activeCourse, setActiveCourse} = useCourses()
+  const {activeCourse, setActiveCourse, removeCourse} = useCourses()
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
@@ -20,9 +21,16 @@ const CourseMenuItem = ({course}) => {
     setOpen(false)
   }
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     setLoading(true)
-    // setOpen(false)
+    try {
+      const response = await deleteCourse({id: course._id})
+      removeCourse(course._id)
+    } catch(error){
+      console.log(error);
+    }
+    setOpen(false)
+
   }
 
   useEffect(() => {

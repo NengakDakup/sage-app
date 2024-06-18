@@ -21,8 +21,7 @@ export const editCourse = (data) => {
 };
 
 export const deleteCourse = (data) => {
-    const { course_id, user_id } = data;
-    return axiosInstance.delete("/course/delete/", { course_id, user_id });
+    return axiosInstance.delete("/course/delete/" + data.id);
 }
 
 
