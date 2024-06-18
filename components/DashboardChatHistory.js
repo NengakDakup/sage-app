@@ -5,7 +5,6 @@ import { Button } from './ui/button'
 import ChatHistoryItem from './ChatHistoryItem'
 import useWindowDimensions from '@/context/useWindowDimensions'
 
-
 const DashboardChatHistory = () => {
     const [toggled, setToggled] = useState(false)
     const {width, height} = useWindowDimensions();
