@@ -145,5 +145,4 @@ const DashboardChatHistory = () => {
         </div>
     )
 }
-
 export default DashboardChatHistory
