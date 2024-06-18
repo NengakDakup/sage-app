@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input"
 import { ArrowDown, Book, Bookmark, ListMinus, Search } from 'lucide-react';
 import { ChevronDown } from 'lucide-react';
 import { UsersRound } from 'lucide-react';
-import { EllipsisVertical } from 'lucide-react';
 import { Button } from '@/components/ui/button'
 import { GroupMember } from './GroupMember';
 import { useUser } from '@/context/UserContext';
@@ -63,8 +62,6 @@ const DesktopHeader = () => {
                         </Button>
                     </Link>
                 </div>
-
-                <EllipsisVertical />
             </div>
 
     </div>
