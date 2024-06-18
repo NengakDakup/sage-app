@@ -5,10 +5,11 @@ import { Button } from '@/components/ui/button'
 import CourseMenuItem from '@/components/CourseMenuItem'
 import AddCourseModal from '@/components/AddCourseModal'
 import GroupStudySessionModal from './GroupStudySessionModal'
-import { useDashboard } from '@/context/DashboardContext'
+import { useCourses } from '@/context/CoursesContext'
+import CourseList from './CourseList'
 
 const LeftSideBar = ({toggled, setToggled}) => {
-    const {courses} = useDashboard()
+    const {courses} = useCourses()
     return (
         <div className={`flex flex-col items-center w-full h-full overflow-x-hidden pt-10 border-r border-purple-light px-3`}>
             <div className={`w-full flex flex-row ${toggled? "justify-center" : "justify-between"}`}>
@@ -45,11 +46,7 @@ const LeftSideBar = ({toggled, setToggled}) => {
 
             </div>
             
-            {!toggled &&
-                <div className='flex flex-col w-full h-full overflow-y-scroll mt-6 py-6 gap-4 border-t border-purple-light'>
-                    {courses.list.map((course, i) => <CourseMenuItem key={i} course={course} />)}
-                </div>
-            }
+            {!toggled && <CourseList />}
         </div>
     )
 }

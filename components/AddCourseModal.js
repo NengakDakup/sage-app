@@ -19,6 +19,7 @@ import { validateCourseInput } from '@/common/validation';
 import { createCourse } from '@/api/course';
 import { isAxiosError } from 'axios';
 import { ThreeDots } from 'react-loader-spinner';
+import { useCourses } from '@/context/CoursesContext';
 
 
 
@@ -27,7 +28,8 @@ const AddCourseModal = ({children}) => {
   const [loading, setLoading] = useState(false)
   const fileInputRef = useRef(null);
   const filesEndRef = useRef(null);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const {addNewCourse} = useCourses()
 
   const [formData, setFormData] = useState({
     title: '',
@@ -85,8 +87,8 @@ const AddCourseModal = ({children}) => {
       newFormData.append("title", formData.title)
       formData.description && newFormData.append("description", formData.description)
       formData.files.forEach(file => newFormData.append('files', file))
-
-      const response = await createCourse(newFormData);
+      const {data} = await createCourse(newFormData);
+      addNewCourse(data.course)
       setOpen(false)
     } catch (error) {
       if (isAxiosError(error)) {

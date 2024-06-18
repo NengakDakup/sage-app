@@ -4,14 +4,15 @@ import { isAxiosError } from 'axios';
 import { getCourses } from '@/api/course';
 
 // Create the context
-const DashboardContext = createContext();
+const CoursesContext = createContext();
 
 // Create the provider component
 export const DashboardProvider = ({ children }) => {
+    const [activeCourse, setActiveCourse] = useState('')
     const [courses, setCourses] = useState({
         list: [],
         loading: false,
-        error: null
+        error: null,
     })
 
     // Function to fetch data
@@ -33,16 +34,20 @@ export const DashboardProvider = ({ children }) => {
         setCourses(prevState => ({...prevState, loading: false}))
     };
 
+    const addNewCourse = (data) => {
+        setCourses(prevState => ({...prevState, list: [data,...prevState.list]}))
+    }
+
 
     useEffect(() => {
         fetchCourses();
     }, []);
 
     return (
-        <DashboardContext.Provider value={{ courses, fetchCourses }}>
+        <CoursesContext.Provider value={{ courses, fetchCourses, addNewCourse, activeCourse, setActiveCourse }}>
             {children}
-        </DashboardContext.Provider>
+        </CoursesContext.Provider>
     );
 };
 
-export const useDashboard = () => useContext(DashboardContext);
+export const useCourses = () => useContext(CoursesContext);

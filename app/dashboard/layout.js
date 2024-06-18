@@ -3,7 +3,7 @@ import { DashboardHeader } from '@/components/DashboardHeader'
 import LeftSideBar from '@/components/LeftSideBar'
 import MobileFlashcardList from '@/components/MobileFlashcardList'
 import MobileCourseItemsMenu from '@/components/MobileLeftSideBar'
-import { DashboardProvider } from '@/context/DashboardContext'
+import { DashboardProvider } from '@/context/CoursesContext'
 import useWindowDimensions from '@/context/useWindowDimensions'
 import React, {useState, useEffect} from 'react'
 
