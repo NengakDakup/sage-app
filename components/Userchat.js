@@ -1,11 +1,11 @@
 import React from 'react'
 import { Label } from "@/components/ui/label"
-export const Userchat = () => {
+export const Userchat = ({message}) => {
   return (
     <div className='self-end'>
-        <Label className="w-full text-gray-400 text-[8px] text-right" >GARY JAKES</Label>
+        <Label className="w-full text-gray-400 text-[8px] text-right" >USER</Label>
         <div className='border border-solid border-gray-600 p-3 rounded-lg text-[12px]'>
-          Hey Sage, Summarize the Introduction to AI Systems course.
+          {message.content}
         </div>
     </div>
   )

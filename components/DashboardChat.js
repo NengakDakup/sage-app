@@ -23,23 +23,13 @@ const DashboardChat = () => {
         {(courseName && activeChat) && <p>{courseName} : {activeChat.title}</p>}
         {(!courseName || !activeChat) && <WelcomeChat text="Select or Upload a course to get started" />}
         {activeChat.type === "new" && <WelcomeChat/>}
-        {/* <Userchat/>
-        <SageAiChat/>
-        <Userchat/>
-        <SageAiChat/>
-        <Userchat/>
-        <SageAiChat/>
-        <Userchat/>
-        <SageAiChat/>
-        <Userchat/>
-        <SageAiChat/>
-        <Userchat/>
-        <SageAiChat/>
-        <Userchat/>
-        <SageAiChat/>
-        <Userchat/>
-        <SageAiChat/>
-        <Userchat/> */}
+        {activeChat?.messages?.map(message => {
+          if(message.role === 'user'){
+              return <Userchat message={message} />
+          } else {
+              return <SageAiChat message={message} />
+          }
+        })}
       </div>
       
 

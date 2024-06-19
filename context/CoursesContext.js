@@ -17,6 +17,32 @@ export const DashboardProvider = ({ children }) => {
         error: null,
     })
 
+    const [userMessage, setUserMessage] = useState('')
+
+    const sendUserMessage = (custom) => {
+        if(!activeChat) return;
+        let data = {
+            role: 'user',
+            content: custom || userMessage,
+            date: (new Date())
+
+        }
+
+        if(custom.length > 1){
+            data.content = custom
+        } else if(userMessage.length > 1){
+            data.content = userMessage
+        } else {
+            return
+        }
+
+        setActiveChat({...activeChat, messages: [...activeChat.messages, data]})
+        
+
+        
+        
+    }
+
     // Function to fetch data
     const fetchCourses = async () => {
         setCourses(prevState => ({...prevState, loading: true}))
@@ -66,7 +92,7 @@ export const DashboardProvider = ({ children }) => {
     }, [activeCourse])
 
     return (
-        <CoursesContext.Provider value={{ courses, fetchCourses, addNewCourse, activeCourse, setActiveCourse, removeCourse, chats, activeChat, setActiveChat, setChats }}>
+        <CoursesContext.Provider value={{ courses, fetchCourses, addNewCourse, activeCourse, setActiveCourse, removeCourse, chats, activeChat, setActiveChat, setChats, userMessage, setUserMessage, sendUserMessage }}>
             {children}
         </CoursesContext.Provider>
     );
