@@ -19,8 +19,10 @@ export const DashboardProvider = ({ children }) => {
     })
 
     const [userMessage, setUserMessage] = useState('')
+    const [messageLoading, setMessageLoading] = useState(false)
 
     const sendUserMessage = async (custom) => {
+        // check that there is an active chat first and it has the mesaages property
         if(!activeChat.messages) return;
         let data = {
             role: 'user',
@@ -37,30 +39,29 @@ export const DashboardProvider = ({ children }) => {
             return
         }
 
-        setActiveChat({...activeChat, messages: [...activeChat.messages, data]})
+        setUserMessage('')
+        setMessageLoading(true)
 
+        let prevChat = activeChat;
+        prevChat.messages.push(data)
+        setActiveChat(prevState => ({...prevState, messages: [...prevChat.messages]}))
 
+    
         try {
-            let filteredMessages = activeChat.messages.map(message => {
-                return {
+            let filteredMessages = prevChat.messages.map(message => {
+                let newMessage = {
                     role: message.role,
                     content: message.content
                 }
+                return newMessage
             })
-            
-            let  {data} = await sendChat(filteredMessages)
-            console.log(data, filteredMessages);
-            setActiveChat({...activeChat, messages: [...activeChat.messages, data.choices[0].message]})
+
+            let  response = await sendChat(filteredMessages)
+            setActiveChat(prevState => ({...prevState, messages: [...prevState.messages, response.data.choices[0].message]}))
         } catch(error){
             console.log(error)
         }
-
-        
-
-        
-
-        
-        
+        setMessageLoading(false)
     }
 
     // Function to fetch data
@@ -112,7 +113,7 @@ export const DashboardProvider = ({ children }) => {
     }, [activeCourse])
 
     return (
-        <CoursesContext.Provider value={{ courses, fetchCourses, addNewCourse, activeCourse, setActiveCourse, removeCourse, chats, activeChat, setActiveChat, setChats, userMessage, setUserMessage, sendUserMessage }}>
+        <CoursesContext.Provider value={{ courses, fetchCourses, addNewCourse, activeCourse, setActiveCourse, removeCourse, chats, activeChat, setActiveChat, setChats, userMessage, setUserMessage, sendUserMessage, messageLoading }}>
             {children}
         </CoursesContext.Provider>
     );

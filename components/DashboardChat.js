@@ -6,9 +6,10 @@ import { WelcomeChat } from './WelcomeChat';
 import { UserPrompt } from './UserPrompt';
 import ChatInput from './ChatInput';
 import { useCourses } from '@/context/CoursesContext';
+import { SageAiChatLoading } from './SageAiChatLoading';
 
 const DashboardChat = () => {
-  const {activeChat, courses} = useCourses()
+  const {activeChat, courses, messageLoading} = useCourses()
   const [courseName, setCourseName] = useState('')
 
   useEffect(() => {
@@ -30,6 +31,7 @@ const DashboardChat = () => {
               return <SageAiChat message={message} />
           }
         })}
+        {messageLoading && <SageAiChatLoading />}
       </div>
       
 
