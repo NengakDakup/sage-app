@@ -1,6 +1,19 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Lottie from 'react-lottie';
+import animationData from './../lib/lottie/upload.json';
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYTop slice"
+  }
+};
+
 
 export default function Home() {
   return (
@@ -16,7 +29,13 @@ export default function Home() {
             </Button>
           </div>
           <div className="flex flex-col w-full md:w-1/2 justify-center md:items-end">
-            <Image src="/images/bookmark-preview.png" width={398} height={508} className="w-[330px] mt-4 md:mt-0" />
+            
+            <Lottie 
+              options={defaultOptions}
+                height={600}
+                width={600}
+              />
+
           </div>
 
         </div>
