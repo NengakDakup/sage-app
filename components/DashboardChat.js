@@ -1,17 +1,29 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import { Userchat } from './Userchat';
 import { SageAiChat } from './SageAiChat'
 import { WelcomeChat } from './WelcomeChat';
 import { UserPrompt } from './UserPrompt';
 import ChatInput from './ChatInput';
+import { useCourses } from '@/context/CoursesContext';
 
 const DashboardChat = () => {
+  const {activeChat, courses} = useCourses()
+  const [courseName, setCourseName] = useState('')
+
+  useEffect(() => {
+    let filtered = courses.list.filter(course => activeChat.course === course._id)
+    if(filtered.length > 0) setCourseName(filtered[0].title)
+  }, [activeChat])
+  
   return (
     <div className='flex flex-col grow border-r border-purple-light px-3 pt-8 overflow-y-scroll overflow-x-hidden relative'>
       
-      <div className='flex flex-col gap-4 w-full max-w-[900px] mx-auto relative pb-[200px]'>
-        <WelcomeChat/>
-        <Userchat/>
+      <div className='flex flex-col gap-4 w-full max-w-[900px] h-full mx-auto relative pb-[200px]'>
+        {(courseName && activeChat) && <p>{courseName} : {activeChat.title}</p>}
+        {(!courseName || !activeChat) && <WelcomeChat text="Select or Upload a course to get started" />}
+        {activeChat.type === "new" && <WelcomeChat/>}
+        {/* <Userchat/>
         <SageAiChat/>
         <Userchat/>
         <SageAiChat/>
@@ -27,7 +39,7 @@ const DashboardChat = () => {
         <SageAiChat/>
         <Userchat/>
         <SageAiChat/>
-        <Userchat/>
+        <Userchat/> */}
       </div>
       
 

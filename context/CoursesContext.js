@@ -9,6 +9,8 @@ const CoursesContext = createContext();
 // Create the provider component
 export const DashboardProvider = ({ children }) => {
     const [activeCourse, setActiveCourse] = useState('')
+    const [chats, setChats] = useState([])
+    const [activeChat, setActiveChat] = useState({})
     const [courses, setCourses] = useState({
         list: [],
         loading: false,
@@ -47,8 +49,24 @@ export const DashboardProvider = ({ children }) => {
         fetchCourses();
     }, []);
 
+    useEffect(() => {
+        if(activeCourse){
+            let filteredCourses = courses.list.filter(course => course._id === activeCourse)
+            setChats(filteredCourses[0].chats)
+            setActiveChat({})
+            if(filteredCourses[0].chats.length < 1 || !activeChat){
+                // add a temporary new chat
+                const newChat = {title: "New Chat", course: activeCourse, messages: [], updatedAt: (new Date().toISOString()), type: 'new', _id: Date.now()}
+                setChats([newChat])
+                setActiveChat(newChat)
+            } else {
+                setActiveChat(filteredCourses[0].chats[0])
+            }
+        }
+    }, [activeCourse])
+
     return (
-        <CoursesContext.Provider value={{ courses, fetchCourses, addNewCourse, activeCourse, setActiveCourse, removeCourse }}>
+        <CoursesContext.Provider value={{ courses, fetchCourses, addNewCourse, activeCourse, setActiveCourse, removeCourse, chats, activeChat, setActiveChat, setChats }}>
             {children}
         </CoursesContext.Provider>
     );
