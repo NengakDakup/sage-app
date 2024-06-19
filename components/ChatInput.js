@@ -4,7 +4,9 @@ import { Plus, SendHorizontal } from 'lucide-react';
 import { useCourses } from '@/context/CoursesContext';
 
 const ChatInput = () => {
-  const {sendUserMessage, setUserMessage, userMessage} = useCourses()
+  const {sendUserMessage, setUserMessage, userMessage, activeChat} = useCourses()
+
+  if(!activeChat.messages) return (<div></div>)
   return (
     <div className='w-full flex gap-2 relative px-2 md:px-0'>
         <div className='w-12 h-12 flex justify-center items-center rounded-full bg-[#252031]'>

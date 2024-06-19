@@ -1,6 +1,7 @@
 
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { isAxiosError } from 'axios';
+import uniqid from 'uniqid';
 import { getCourses } from '@/api/course';
 import { sendChat } from '@/api/chat';
 
@@ -40,7 +41,9 @@ export const DashboardProvider = ({ children }) => {
         }
 
         setUserMessage('')
-        setMessageLoading(true)
+        setTimeout(() => {
+            setMessageLoading(true)
+        }, 400);
 
         let prevChat = activeChat;
         prevChat.messages.push(data)
@@ -103,7 +106,7 @@ export const DashboardProvider = ({ children }) => {
             setActiveChat({})
             if(filteredCourses[0].chats.length < 1 || !activeChat){
                 // add a temporary new chat
-                const newChat = {title: "New Chat", course: activeCourse, messages: [], updatedAt: (new Date().toISOString()), type: 'new', _id: Date.now()}
+                const newChat = {title: "New Chat", course: activeCourse, messages: [], updatedAt: (new Date().toISOString()), type: 'new', _id: uniqid()}
                 setChats([newChat])
                 setActiveChat(newChat)
             } else {
