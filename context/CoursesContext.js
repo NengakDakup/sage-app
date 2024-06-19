@@ -2,6 +2,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { isAxiosError } from 'axios';
 import { getCourses } from '@/api/course';
+import { sendChat } from '@/api/chat';
 
 // Create the context
 const CoursesContext = createContext();
@@ -19,8 +20,8 @@ export const DashboardProvider = ({ children }) => {
 
     const [userMessage, setUserMessage] = useState('')
 
-    const sendUserMessage = (custom) => {
-        if(!activeChat) return;
+    const sendUserMessage = async (custom) => {
+        if(!activeChat.messages) return;
         let data = {
             role: 'user',
             content: custom || userMessage,
@@ -37,6 +38,25 @@ export const DashboardProvider = ({ children }) => {
         }
 
         setActiveChat({...activeChat, messages: [...activeChat.messages, data]})
+
+
+        try {
+            let filteredMessages = activeChat.messages.map(message => {
+                return {
+                    role: message.role,
+                    content: message.content
+                }
+            })
+            
+            let  {data} = await sendChat(filteredMessages)
+            console.log(data, filteredMessages);
+            setActiveChat({...activeChat, messages: [...activeChat.messages, data.choices[0].message]})
+        } catch(error){
+            console.log(error)
+        }
+
+        
+
         
 
         
