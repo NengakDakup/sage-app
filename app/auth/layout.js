@@ -24,7 +24,7 @@ export default function AuthLayout({ children }) {
                 width={800}
               />
             </div>
-            <div className="w-full lg:w-1/2 h-screen overflow-y-auto">
+            <div className="w-full lg:w-1/2 h-screen overflow-visible">
                 {children}
             </div>
             
