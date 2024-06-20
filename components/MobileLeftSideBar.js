@@ -4,6 +4,7 @@ import { Button } from './ui/button'
 import CourseMenuItem from './CourseMenuItem';
 import AddCourseModal from './AddCourseModal';
 import CourseList from './CourseList';
+import MobileNewChat from './MobileNewChat';
 
 const MobileCourseItemsMenu = ({setMobileLeftToggled}) => {
   return (
@@ -26,6 +27,7 @@ const MobileCourseItemsMenu = ({setMobileLeftToggled}) => {
 
         
         <CourseList />
+        <MobileNewChat/>
 
     </div>
   )
