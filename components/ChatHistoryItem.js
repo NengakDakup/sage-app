@@ -16,9 +16,9 @@ const timeAgo = new TimeAgo('en-US')
 
 const ChatHistoryItem = ({chat}) => {
   const {activeChat, setActiveChat} = useCourses()
-  console.log(activeChat._id, chat._id);
+  let bgColor = (activeChat._id === chat._id) && 'bg-purple-light';
   return (
-    <div onClick={() => setActiveChat(chat)} className={`flex flex-row items-center justify-between w-full h-12 px-2 border border-purple-light rounded-md cursor-pointer hover:bg-purple-light ${activeChat._id === chat.id? '' : 'bg-purple-light'}`}>
+    <div onClick={() => setActiveChat(chat)} className={`flex flex-row items-center justify-between w-full h-12 px-2 border border-purple-light rounded-md cursor-pointer hover:bg-purple-light ${bgColor}`}>
         <div className='flex flex-row items-center justify-start gap-2'>
             <MessageSquare className='w-6 h-6' />
             <div className='flex flex-col overflow-hidden'>
