@@ -22,7 +22,7 @@ const MobileCourseItemsMenu = ({setMobileLeftToggled}) => {
                 </Button>
             </AddCourseModal>
             <GroupStudySessionModal>
-                <Button className={`w-full py-6 justify-start gap-4 border-white justify-start`} variant="outline">
+                <Button className={`w-full py-6 gap-4 border-white justify-start`} variant="outline">
                     <Users />
                     Start a group Session
                 </Button>
