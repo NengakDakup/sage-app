@@ -34,7 +34,7 @@ export const DashboardProvider = ({ children }) => {
 
         if(custom.length > 1){
             data.content = custom
-        } else if(userMessage.length > 1){
+        } else if(userMessage.length > 0){
             data.content = userMessage
         } else {
             return
