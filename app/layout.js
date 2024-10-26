@@ -1,9 +1,10 @@
 'use client'
 import { Montserrat } from "next/font/google";
 import { usePathname } from 'next/navigation';
-import Header from "@/components/Header";
-import "./globals.css";
 import { UserProvider } from "@/context/UserContext";
+import "./globals.css";
+import Header from "@/components/Header";
+import { Toaster } from "@/components/ui/toaster"
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         <UserProvider>
           {isHomePage && <Header />}
           {children}
+          <Toaster className="border-red-500" />
         </UserProvider>
       </body>
     </html>

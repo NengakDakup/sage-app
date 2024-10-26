@@ -1,14 +1,30 @@
+'use client'
+import Lottie from 'react-lottie';
+import animationData from './../../lib/lottie/group.json';
+import React from 'react';
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice"
+  }
+};
+
 export default function AuthLayout({ children }) {
     
   
     return (
         <div className="flex w-screen h-screen">
             <div className="hidden lg:flex relative w-1/2">
-                <div className="custom-card-left top-[35px] left-[183.69px] rotate-[-8.28deg]"></div>
-                <div className="custom-card-left top-[170px] left-[35px] rotate-[2.13deg]"></div>
-                <div className="custom-card-left top-[350px] left-[130px] rotate-[19.5deg]"></div>
+            <Lottie 
+              options={defaultOptions}
+                height={800}
+                width={800}
+              />
             </div>
-            <div className="w-full lg:w-1/2 h-screen overflow-x-hidden">
+            <div className="w-full lg:w-1/2 h-screen overflow-visible">
                 {children}
             </div>
             

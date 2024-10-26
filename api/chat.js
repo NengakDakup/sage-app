@@ -7,8 +7,7 @@ export const createChat = (data) => {
 };
 
 export const sendChat = (data) => {
-    const { chat_id, user_id, user_propmt } = data;
-    return axiosInstance.patch("/chat/send/", { chat_id, user_id, user_propmt });
+    return axiosInstance.post("/chat/send/", {messages: data, model: "llama3-8b-8192"});
 };
 
 export const deleteChat = (data) => {

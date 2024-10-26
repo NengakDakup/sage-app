@@ -51,6 +51,7 @@ module.exports = {
           DEFAULT: "hsl(var(--blue))",
           darkest: "hsl(var(--blue-darkest))",
         },
+        "purple-lightest": "#3c334f",
         "purple-light": "hsl(var(--purple-light))",
         "purple": "hsl(var(--gradient-primary-from))",
         "purple-dark": "hsl(var(--gradient-primary-to))",

@@ -1,6 +1,20 @@
+'use client'
 import { Button } from "@/components/ui/button";
+import Link from 'next/link'
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Lottie from 'react-lottie';
+import animationData from './../lib/lottie/upload.json';
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYTop slice"
+  }
+};
+
 
 export default function Home() {
   return (
@@ -10,13 +24,21 @@ export default function Home() {
           <div className="w-full md:w-1/2">
             <p className="font-bold text-4xl md:text-6xl md:mt-16 leading-[40px] md:leading-[70px]">SUPERCHARGE YOUR STUDY HABITS</p>
             <p className="mt-6 text-slate-300">Experience smarter way to learn efficiently tailored to fit every study style.</p>
-            <Button className="mt-8" variant="light">
-              Get Started
-              <ArrowRight className="ml-2" />
-            </Button>
+            <Link href='/auth/signup'>
+              <Button className="mt-8" variant="light">
+                Get Started
+                <ArrowRight className="ml-2" />
+              </Button>
+            </Link>
           </div>
           <div className="flex flex-col w-full md:w-1/2 justify-center md:items-end">
-            <Image src="/images/bookmark-preview.png" width={398} height={508} className="w-[330px] mt-4 md:mt-0" />
+            
+            <Lottie 
+              options={defaultOptions}
+                height={600}
+                width={600}
+              />
+
           </div>
 
         </div>
